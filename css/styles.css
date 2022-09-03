@@ -1,0 +1,25 @@
+/* custom properties, rem(font size base), box-sizing */
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+/* border- box on all elements */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Remove system-level styling on inputs used by browsers */
+input {
+  appearance: none;
+}
+
+/* background-color, margins, fonts */
+/* body extends whole viewport and no scrolling issues */
+/* font-size by default is 16px */
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+}
