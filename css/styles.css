@@ -148,3 +148,11 @@ border-left: none;
   background-color: white;
   border-radius: 10px;
 }
+
+
+.style-button { 
+  color:   rgb(85, 61, 103) !important;
+  border: 2px solid  rgb(85, 61, 103) !important;
+  transform: scale(1.05);
+  transition-duration: 500ms;
+}
