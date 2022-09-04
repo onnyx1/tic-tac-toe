@@ -22,4 +22,129 @@ input {
 body {
   font-size: 1.6rem;
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.master-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(211, 211, 211);
+  width: 50%;
+  margin-top: 0.7rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px 0px  rgb(211, 211, 211, .5);
+
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  box-shadow: 0px 2px 10px 0px  rgb(211, 211, 211, .5);
+}
+
+.row > button {
+  padding: 0.6rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  background-color: white;
+  border-radius: 10px;
+  border-style: none;
+  outline-style: none;
+  border: 1px solid rgb(212, 212, 212);
+  color: rgb(152, 152, 152);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 85px 85px 85px;
+  grid-template-rows: 85px 85px 85px;
+}
+
+.row2 {
+  display: flex;
+  background-color: rgb(85, 61, 103);
+  justify-content: space-around;
+  padding: 3rem;
+
+}
+
+.grid > button {
+  background-color: rgb(85, 61, 103);
+  font-size: 3rem;
+  font-weight: 600;
+  color: rgb(18,35,46);
+  text-align: center;
+}
+
+
+.button1 {
+  border: 2px solid rgb(32, 54, 71);
+  border-left: none;
+  border-top: none;
+}
+
+.button2 {
+  border: 2px solid rgb(32, 54, 71);
+  border-top: none;
+}
+
+.button3{
+  border: 2px solid rgb(32, 54, 71);
+  border-top: none;
+  border-right: none;
+}
+
+.button4{
+  border: 2px solid rgb(32, 54, 71);
+border-left: none;
+}
+
+.button5{
+  border: 2px solid rgb(32, 54, 71);
+}
+
+.button6 {
+  border: 2px solid rgb(32, 54, 71);
+  border-right: none;
+}
+
+.button7 {
+  border: 2px solid rgb(32, 54, 71);
+  border-left: none;
+  border-bottom: none;
+}
+
+.button8{
+  border: 2px solid rgb(32, 54, 71);
+  border-bottom: none;
+}
+
+.button9{
+  border: 2px solid rgb(32, 54, 71);
+  border-right: none;
+  border-bottom: none;
+}
+
+.restart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  outline-style: none;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10px;
 }
