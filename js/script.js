@@ -86,16 +86,16 @@ const displayController = (function () {
         }
 
         if (winX === 3) {
-          console.log("X Wins");
+          return("X Wins!");
         }
 
         if (winO === 3) {
-          console.log("O Wins");
+          return("O Wins!");
         }
       }
     }
 
-    console.log("no one wins");
+    return ("no one wins");
   };
 
   const heuristic_function = function (board) {
@@ -304,18 +304,57 @@ const displayController = (function () {
   };
 
   const buttons = document.querySelectorAll(".grid button");
+  const message = document.querySelector(".message p");
+  const span = document.querySelector(".p span");
+
+
   for (let button of buttons) {
     button.addEventListener("click", function () {
       if (validSpot(button)) {
+        span.classList.remove("animate__swing");
+
         x_player.move(button.getAttribute("data-num"));
-        winCondition();
-        if (testDraw(gameBoard.getBoard()) === "Draw") {
-          alert("Draw!");
+
+        if(winCondition() === "X Wins!"){
+          eraseEvent();
+          message.style.display = "block";
+          span.textContent = winCondition();
+          span.classList.add("animate__swing");
+        }
+
+        if(winCondition() === "O Wins!"){
+          eraseEvent();
+          message.style.display = "block";
+          span.textContent = winCondition();
+          span.classList.add("animate__swing");
+        }
+
+        if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+          message.style.display = "block";
+          span.textContent = "Draw!";
+          span.classList.add("animate__swing");
+
+
         }
         o_player.move(optimalMove(gameBoard.getBoard()));
-        winCondition();
-        if (testDraw(gameBoard.getBoard()) === "Draw") {
-          alert("Draw!");
+        if(winCondition() === "X Wins!"){
+          eraseEvent();
+          message.style.display = "block";
+          span.textContent = winCondition();
+          span.classList.add("animate__swing");
+        }
+
+        if(winCondition() === "O Wins!"){
+          eraseEvent();
+          message.style.display = "block";
+          span.textContent = winCondition();
+          span.classList.add("animate__swing");
+        }
+
+        if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+          span.textContent = "Draw!";
+          span.classList.add("animate__animated");
+          span.classList.add("animate__swing");
         }
       }
     });
@@ -329,6 +368,9 @@ const displayController = (function () {
   x.addEventListener("click", () => {
     x.classList.add("style-button");
     o.classList.remove("style-button");
+    message.style.display = "none";
+
+
 
     gameBoard.setBoard(["", "", "", "", "", "", "", "", ""]);
 
@@ -338,15 +380,45 @@ const displayController = (function () {
     for (let button of buttons) {
       button.addEventListener("click", function () {
         if (validSpot(button)) {
+          span.classList.remove("animate__swing");
           x_player.move(button.getAttribute("data-num"));
-          winCondition();
-          if (testDraw(gameBoard.getBoard()) === "Draw") {
-            alert("Draw!");
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+            span.textContent = "Draw!";
+            span.classList.add("animate__swing");
           }
           o_player.move(optimalMove(gameBoard.getBoard()));
-          winCondition();
-          if (testDraw(gameBoard.getBoard()) === "Draw") {
-            alert("Draw!");
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+          span.textContent = "Draw!";
+          span.classList.add("animate__swing");
           }
         }
       });
@@ -356,6 +428,8 @@ const displayController = (function () {
   o.addEventListener("click", () => {
     o.classList.add("style-button");
     x.classList.remove("style-button");
+    message.style.display = "none";
+
 
     gameBoard.setBoard(["", "", "", "", "", "", "", "", ""]);
 
@@ -366,19 +440,48 @@ const displayController = (function () {
     const buttons = document.querySelectorAll(".grid button");
     for (let button of buttons) {
       button.addEventListener("click", function () {
+        span.classList.remove("animate__swing");
         if (validSpot(button)) {
           o_player.move(button.getAttribute("data-num"));
-          winCondition();
-          if (testDraw(gameBoard.getBoard()) === "Draw") {
-            alert("Draw!");
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+            span.textContent = "Draw!";
+            span.classList.add("animate__swing");
           }
 
           x_player.move(optimalMove2(gameBoard.getBoard()));
 
-          winCondition();
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
 
-          if (testDraw(gameBoard.getBoard()) === "Draw") {
-            alert("Draw!");
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+          span.textContent = "Draw!";
+          span.classList.add("animate__swing");
           }
         }
       });
@@ -391,15 +494,126 @@ const displayController = (function () {
   restart.addEventListener("click",()=>{
 
     gameBoard.setBoard(["", "", "", "", "", "", "", "", ""]);
-
+    message.style.display = "none";
     if(o.classList.contains("style-button")){
-      x_player.move(Math.floor(Math.random() * 9));
 
+    gameBoard.setBoard(["", "", "", "", "", "", "", "", ""]);
+
+    eraseEvent();
+
+    x_player.move(Math.floor(Math.random() * 9));
+
+    const buttons = document.querySelectorAll(".grid button");
+    for (let button of buttons) {
+      button.addEventListener("click", function () {
+        span.classList.remove("animate__swing");
+        if (validSpot(button)) {
+          o_player.move(button.getAttribute("data-num"));
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+            span.textContent = "Draw!";
+            span.classList.add("animate__swing");
+          }
+
+          x_player.move(optimalMove2(gameBoard.getBoard()));
+
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+          span.textContent = "Draw!";
+          span.classList.add("animate__swing");
+          }
+        }
+      });
     }
+  } else {
 
 
-  })
 
 
-  return { movesRemaining, heuristic_function, optimalMove };
+
+    gameBoard.setBoard(["", "", "", "", "", "", "", "", ""]);
+
+    eraseEvent();
+
+    const buttons = document.querySelectorAll(".grid button");
+    for (let button of buttons) {
+      button.addEventListener("click", function () {
+        if (validSpot(button)) {
+          span.classList.remove("animate__swing");
+          x_player.move(button.getAttribute("data-num"));
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+            span.textContent = "Draw!";
+            span.classList.add("animate__swing");
+          }
+          o_player.move(optimalMove(gameBoard.getBoard()));
+          if(winCondition() === "X Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+
+          }
+  
+          if(winCondition() === "O Wins!"){
+            eraseEvent();
+            message.style.display = "block";
+            span.textContent = winCondition();
+            span.classList.add("animate__swing");
+          }
+          if (testDraw(gameBoard.getBoard()) === "Draw" && winCondition() !== "O Wins" && winCondition() !== "X Wins!") {
+            message.style.display = "block";
+          span.textContent = "Draw!";
+          span.classList.add("animate__swing");
+          }
+        }
+      });
+    }
+  }
+
+
+  }
+);
+
+  return {};
 })();

@@ -92,6 +92,7 @@ body {
   border: 2px solid rgb(32, 54, 71);
   border-left: none;
   border-top: none;
+  transition-duration: 500m;
 }
 
 .button2 {
@@ -155,4 +156,18 @@ border-left: none;
   border: 2px solid  rgb(85, 61, 103) !important;
   transform: scale(1.05);
   transition-duration: 500ms;
+}
+
+.message > p {
+  display: none;
+  text-align: center;
+  background-color: white !important;
+  margin: 0px;
+  padding: 1.5rem;
+  font-size: 1.7rem;
+}
+
+.p > span {
+  display: inline-block;
+  font-weight: bold;
 }
